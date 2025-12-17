@@ -1,3 +1,8 @@
+//TODO : add aria accessibility and keyboard support
+//TODO : implement touch/swipe navigation
+//TODO : implement throttling (for nav-btn clicks)
+
+
 const slideTrack=document.querySelector('.slider-track')
 const dotsContainer=document.querySelector('.dots-container')
 const prevBtn=document.querySelector('.prev-btn')
