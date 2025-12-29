@@ -88,7 +88,7 @@ h3{
 }
 
 .spacer{
-    margin-block:40vh;
+    margin-block:50vh;
 }
 
 .scroll-container{
@@ -98,7 +98,6 @@ h3{
 }
 
 .scroll-viewport{
-    padding-inline:64px;
     position:sticky;
     top:0px;
     height:100vh;
@@ -108,6 +107,7 @@ h3{
 }
 
 .scroll-track{
+    padding-inline:64px;    
     width:max-content;
     display:flex;
     gap:32px;

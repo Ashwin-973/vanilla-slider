@@ -80,22 +80,37 @@ const scrollContainer=document.querySelector('.scroll-container');
 const scrollViewport = document.querySelector('scroll-viewport');
 const scrollTrack=document.querySelector('.scroll-track');
 
-let 
-
-/*
-scrolledDist
-
-calculate dist scrolled from top of container
+let maxSlideWidth , maxScrollHeight ;
 
 
-element not in viewport (rect.top>0) scrolled = 0
-element in viewport (rect.top<0) scrolled = -top
+function onLoad(){
+
+    maxSlideWidth = scrollTrack.offsetWidth - window.innerWidth;
+
+    maxScrollHeight = scrollContainer.offsetHeight - window.innerHeight;
+
+}
 
 
 
-progress : scrolledDist/total
+function onScroll(){
 
-scrollTrack.transform.-progressx
+    const containerPosition=scrollContainer.getBoundingClientRect();
+    let scrolled=-containerPosition.top;
 
 
-*/
+    if(scrolled<0) scrolled=0;
+    if(scrolled > maxScrollHeight) scrolled=maxScrollHeight;
+    // else scrollDistance<=maxScrollHeight? scrollDistance=scrolled : scrollDistance=maxScrollHeight ;
+    
+    const scrollProgress= scrolled / maxScrollHeight;
+    console.log(scrollProgress)
+    
+    scrollTrack.style.transform=`translateX(-${scrollProgress * maxSlideWidth}px)`
+
+}
+
+onLoad();
+
+window.addEventListener('resize',onLoad);
+window.addEventListener('scroll',onScroll);
