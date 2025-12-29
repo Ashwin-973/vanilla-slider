@@ -68,4 +68,28 @@ nextBtn.addEventListener('click',(e)=>
 
 
 
+/*----------------------------------------------------------------------------------------------------------------------------------------------- */
 
+const scrollContainer=document.querySelector('.scroll-container');
+const scrollViewport = document.querySelector('scroll-viewport');
+const scrollTrack=document.querySelector('.scroll-track');
+
+let 
+
+/*
+scrolledDist
+
+calculate dist scrolled from top of container
+
+
+element not in viewport (rect.top>0) scrolled = 0
+element in viewport (rect.top<0) scrolled = -top
+
+
+
+progress : scrolledDist/total
+
+scrollTrack.transform.-progressx
+
+
+*/
