@@ -14,12 +14,12 @@ p{
 
 h2{
     text-align:center;
-    font-size:40px;
+    font-size:56px;
 }
 h3{
     /* text-align:center; */
     padding-inline:32px;
-    font-size:28px;
+    font-size:48px;
     color:white;
 }
 
@@ -102,12 +102,21 @@ h3{
     top:0px;
     height:100vh;
     display:flex;
-    align-items: center;
+    flex-direction: column;
     overflow:hidden;
 }
-
+.scroll-heading{
+    padding: 40px 0px 0px 32px ;
+    flex-shrink: 0;
+}
+.scroll-track-wrapper{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
 .scroll-track{
-    padding-inline:64px;    
+    padding-inline:64px;
     width:max-content;
     display:flex;
     gap:32px;
