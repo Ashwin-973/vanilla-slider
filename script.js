@@ -80,12 +80,14 @@ const scrollContainer=document.querySelector('.scroll-container');
 const scrollViewport = document.querySelector('scroll-viewport');
 const scrollTrack=document.querySelector('.scroll-track');
 
-let maxSlideWidth , maxScrollHeight ;
+let maxSlideWidth , maxScrollHeight , viewportWidth;
 
 
 function onLoad(){
 
-    maxSlideWidth = scrollTrack.offsetWidth - window.innerWidth;
+    viewportWidth=window.innerWidth;
+
+    maxSlideWidth = scrollTrack.offsetWidth - viewportWidth;
 
     maxScrollHeight = scrollContainer.offsetHeight - window.innerHeight;
 
@@ -94,6 +96,11 @@ function onLoad(){
 
 
 function onScroll(){
+
+    if(viewportWidth<640) {
+        scrollTrack.style.transform=`translateX(0)`
+        return;
+    }
 
     const containerPosition=scrollContainer.getBoundingClientRect();
     let scrolled=-containerPosition.top;
@@ -113,4 +120,7 @@ function onScroll(){
 onLoad();
 
 window.addEventListener('resize',onLoad);
+
 window.addEventListener('scroll',onScroll);
+
+

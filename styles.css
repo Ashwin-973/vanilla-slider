@@ -86,42 +86,39 @@ h3{
 .dot.active{
     background-color: #5e5e5e;
 }
+/*----------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .spacer{
     margin-block:50vh;
 }
 
 .scroll-container{
+    padding-block:32px;
     background-color: black;
-    height:500vh;
-    position:relative;
+    height:auto;
 }
 
 .scroll-viewport{
-    position:sticky;
-    top:0px;
-    height:100vh;
     display:flex;
     flex-direction: column;
-    overflow:hidden;
 }
 .scroll-heading{
-    padding: 40px 0px 0px 32px ;
+    padding: 40px 32px ;
     flex-shrink: 0;
 }
 .scroll-track-wrapper{
     flex: 1;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    overflow-x:scroll;
+    scroll-snap-type: x mandatory;
 }
 .scroll-track{
     padding-inline:64px;
-    width:max-content;
+    width:100%;
     display:flex;
     gap:32px;
     will-change: transform;
-
 }
 
 .card{
@@ -137,6 +134,27 @@ h3{
     font-size: 1.5rem;
     border: 1px solid #444;
     flex-shrink:0;
+    scroll-snap-align: center;  
 }
 
 
+@media screen and (min-width:640px){
+
+    .scroll-container{
+        height:500vh;
+        position: relative;
+    }
+    .scroll-viewport{
+        position:sticky;
+        top:0;
+        height:100vh;
+        overflow:hidden;
+    }
+    .scroll-track-wrapper{
+        overflow-x:hidden;
+    }
+    .scroll-track{
+        width:max-content;
+    }
+
+}
